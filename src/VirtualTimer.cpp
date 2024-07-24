@@ -24,8 +24,7 @@ virtualTimer :: virtualTimer(unsigned long time_Set,char type){
 
 uint8_t virtualTimer :: Q(){
 
-	if((millis() - timeNow >= timeSet) & timerState){
-		timerState = 0;
+	if((millis() - timeNow >= timeSet) && timerState){
 		return 1;
 	}
 	return 0;
