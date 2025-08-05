@@ -34,9 +34,9 @@ uint8_t virtualTimer ::Q()
 {
 	if ((currentTime() - timeNow >= timeSet) && timerState)
 	{
-
 		return 1;
 	}
+	
 	return 0;
 }
 
@@ -46,9 +46,6 @@ void virtualTimer ::start()
 	{
 		timerState = 1;
 		timeNow = currentTime();
-	}
-	else
-	{
 	}
 }
 
