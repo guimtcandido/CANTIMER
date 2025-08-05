@@ -5,10 +5,42 @@
  *      Author: Candido
  */
 
-#ifndef INC_VIRTUALTIMER_HPP_
-#define INC_VIRTUALTIMER_HPP_
+#ifndef INC_VIRTUALTIMER_H
+#define INC_VIRTUALTIMER_H
 
+#define ARDUINO 0
+#define STM32 1
+
+
+
+
+
+/*SET WORKING FRAMEWORK*/
+#define FRAMEWORK ARDUINO 
+/***********************/		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#if FRAMEWORK == ARDUINO
 #include "Arduino.h"
+#elif FRAMEWORK == STM32
+#include "stm32f1xx_hal.h"
+#endif
+
 
 class virtualTimer{
 private:

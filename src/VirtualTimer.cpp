@@ -6,45 +6,53 @@
  */
 #include "VirtualTimer.h"
 
-virtualTimer :: virtualTimer(unsigned long time_Set,char type){
+#if FRAMEWORK == ARDUINO
+#define currentTime(void) millis()
+#elif FRAMEWORK == STM32
+#define currentTime(void) HAL_GetTick()
+#endif
 
-	switch(type) {
-	case 's':  //segundos
+virtualTimer ::virtualTimer(unsigned long time_Set, char type)
+{
+
+	switch (type)
+	{
+	case 's': // segundos
 		timeSet = time_Set * 1000;
 		break;
-	case 'm': //min
+	case 'm': // min
 		timeSet = time_Set * 60000;
 		break;
 
-	default: //ms
+	default: // ms
 		timeSet = time_Set;
-	break;
+		break;
 	}
 }
 
-uint8_t virtualTimer :: Q(){
+uint8_t virtualTimer ::Q()
+{
+	if ((currentTime() - timeNow >= timeSet) && timerState)
+	{
 
-	if((millis() - timeNow >= timeSet) && timerState){
 		return 1;
 	}
 	return 0;
 }
 
-void virtualTimer :: start(){
-	if(!timerState){
+void virtualTimer ::start()
+{
+	if (!timerState)
+	{
 		timerState = 1;
-		timeNow = millis();
-	}else{
-
+		timeNow = currentTime();
 	}
-
+	else
+	{
+	}
 }
 
-void virtualTimer :: reset(){
+void virtualTimer ::reset()
+{
 	timerState = 0;
 }
-
-
-
-
-
