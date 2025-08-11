@@ -54,6 +54,12 @@ public:
 	uint8_t Q();
 	void start();
 	void reset();
+	unsigned long get_startTime();
+	unsigned long get_elapsedTime_raw();
+	unsigned long get_elapsedTime_seconds();
+	unsigned long get_elapsedTime_minutes();
+	unsigned long get_elapsedTime_hours();
+	uint8_t get_timerState();
 };
 
 #endif /* INC_VIRTUALTIMER_HPP_ */

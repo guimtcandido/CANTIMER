@@ -32,11 +32,11 @@ virtualTimer ::virtualTimer(unsigned long time_Set, char type)
 
 uint8_t virtualTimer ::Q()
 {
-	if ((currentTime() - timeNow >= timeSet) && timerState)
+	if ((get_elapsedTime_raw() >= timeSet) && timerState)
 	{
 		return 1;
 	}
-	
+
 	return 0;
 }
 
@@ -52,4 +52,34 @@ void virtualTimer ::start()
 void virtualTimer ::reset()
 {
 	timerState = 0;
+}
+
+unsigned long virtualTimer ::get_elapsedTime_raw()
+{
+	return currentTime() - timeNow;
+}
+
+unsigned long virtualTimer ::get_elapsedTime_seconds()
+{
+	return get_elapsedTime_raw() / 1000;
+}
+
+unsigned long virtualTimer ::get_elapsedTime_minutes()
+{
+	return get_elapsedTime_raw() / 60000;
+}
+
+unsigned long virtualTimer ::get_elapsedTime_hours()
+{
+	return get_elapsedTime_raw() / 3600000;
+}
+
+unsigned long virtualTimer ::get_startTime()
+{
+	return timeNow;
+}
+
+uint8_t virtualTimer ::get_timerState()
+{
+	return timerState;
 }
