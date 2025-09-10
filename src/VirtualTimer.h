@@ -60,6 +60,7 @@ public:
 	unsigned long get_elapsedTime_minutes();
 	unsigned long get_elapsedTime_hours();
 	uint8_t get_timerState();
+	void set_Timer(unsigned long time_Set, char type);
 };
 
 #endif /* INC_VIRTUALTIMER_HPP_ */
