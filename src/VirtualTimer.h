@@ -55,6 +55,7 @@ public:
 	void start();
 	void reset();
 	unsigned long get_startTime();
+	unsigned long get_timerValue();
 	unsigned long get_elapsedTime_raw();
 	unsigned long get_elapsedTime_seconds();
 	unsigned long get_elapsedTime_minutes();

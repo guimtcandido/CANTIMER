@@ -56,6 +56,10 @@ unsigned long virtualTimer::get_startTime() {
 	return timeNow;
 }
 
+unsigned long virtualTimer :: get_timerValue(){
+	return timeSet;
+}
+
 uint8_t virtualTimer::get_timerState() {
 	return timerState;
 }
